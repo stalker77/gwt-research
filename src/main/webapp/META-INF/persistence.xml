@@ -1,0 +1,34 @@
+<persistence xmlns="http://java.sun.com/xml/ns/persistence"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd"
+             version="2.0">
+	<persistence-unit name="ru.dobrokvashinevgeny.research.gwt.jpa" transaction-type="RESOURCE_LOCAL">
+		<provider>org.hibernate.ejb.HibernatePersistence</provider>
+		<non-jta-data-source>java:comp/env/jdbc/ResearchGwtDS</non-jta-data-source>
+		<properties>
+			<property name="hibernate.archive.autodetection" value="class" />
+			<property name="hibernate.dialect" value="org.hibernate.dialect.H2Dialect" />
+			<!--<property name="hibernate.connection.driver_class" value="org.h2.Driver" />
+			<property name="hibernate.connection.url" value="dbc:h2:mem:test;DB_CLOSE_DELAY=-1" />
+			<property name="hibernate.connection.user" value="sa" />-->
+			<!-- <property name="hibernate.show_sql" value="true"/> -->
+			<property name="hibernate.flushMode" value="FLUSH_AUTO" />
+			<property name="hibernate.hbm2ddl.auto" value="update" />
+		</properties>
+	</persistence-unit>
+
+	<!--<persistence-unit name="oracle">
+		<provider>org.hibernate.ejb.HibernatePersistence</provider>
+		<properties>
+			<property name="hibernate.archive.autodetection" value="class" />
+			<property name="hibernate.dialect" value="com.mysema.query.jpa.support.ExtendedOracleDialect" />
+			<property name="hibernate.connection.driver_class" value="oracle.jdbc.driver.OracleDriver" />
+			<property name="hibernate.connection.url" value="jdbc:oracle:thin:@localhost:1521:xe" />
+			<property name="hibernate.connection.username" value="querydsl" />
+			<property name="hibernate.connection.password" value="querydsl" />
+			&lt;!&ndash; <property name="hibernate.show_sql" value="true"/> &ndash;&gt;
+			<property name="hibernate.flushMode" value="FLUSH_AUTO" />
+			<property name="hibernate.hbm2ddl.auto" value="update" />
+		</properties>
+	</persistence-unit>-->
+</persistence>
