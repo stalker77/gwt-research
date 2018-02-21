@@ -2,7 +2,7 @@
  * Copyright (c) 2018 Tander, All Rights Reserved.
  */
 
-package ru.dobrokvashinevgeny.research.gwt.infrastructure.resource;
+package ru.dobrokvashinevgeny.research.gwt.server.resource;
 
 import javax.ws.rs.ApplicationPath;
 import javax.ws.rs.core.Application;

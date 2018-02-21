@@ -16,6 +16,7 @@
 		<maven.compiler.source>1.7</maven.compiler.source>
 
 		<gwt.version>2.6.1</gwt.version>
+		<gxt.version>3.1.1</gxt.version>
 		<!--<resteasy.version>3.1.4.Final</resteasy.version>-->
 		<resteasy.version>3.0.19.Final</resteasy.version><!--max version to work with java 1.7-->
 		<hibernate.version>5.2.13.Final</hibernate.version>
@@ -35,6 +36,13 @@
 			<artifactId>gwt-servlet</artifactId>
 			<version>${gwt.version}</version>
 			<scope>provided</scope>
+		</dependency>
+
+		<!-- Sencha GXT -->
+		<dependency>
+			<groupId>com.sencha.gxt</groupId>
+			<artifactId>gxt</artifactId>
+			<version>${gxt.version}</version>
 		</dependency>
 
 		<!-- RESTEasy -->
@@ -73,30 +81,31 @@
 
 	<build>
 		<plugins>
-			<!--<plugin>-->
-				<!--<groupId>org.codehaus.mojo</groupId>-->
-				<!--<artifactId>gwt-maven-plugin</artifactId>-->
-				<!--<version>${gwt.version}</version>-->
-				<!--<configuration>-->
-					<!--<gwtSdkFirstInClasspath>false</gwtSdkFirstInClasspath>-->
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>gwt-maven-plugin</artifactId>
+				<version>${gwt.version}</version>
+				<configuration>
+					<gwtSdkFirstInClasspath>false</gwtSdkFirstInClasspath>
 
-					<!--<modules>-->
-						<!--<module>ru.dobrokvashinevgeny.research.gwt.HelloWorld</module>-->
-					<!--</modules>-->
-					<!--<sourceLevel>1.7</sourceLevel>-->
-					<!--<style>PRETTY</style>-->
-					<!--<inplace>false</inplace>-->
-					<!--<localWorkers>1</localWorkers>-->
-					<!--<draftCompile>false</draftCompile>-->
-				<!--</configuration>-->
-				<!--<executions>-->
-					<!--<execution>-->
-						<!--<goals>-->
-							<!--<goal>compile</goal>-->
-						<!--</goals>-->
-					<!--</execution>-->
-				<!--</executions>-->
-			<!--</plugin>-->
+					<modules>
+						<module>ru.dobrokvashinevgeny.research.gwt.client.Application</module>
+					</modules>
+					<!--<logLevel>DEBUG</logLevel>-->
+					<sourceLevel>1.7</sourceLevel>
+					<style>PRETTY</style>
+					<inplace>false</inplace>
+					<localWorkers>1</localWorkers>
+					<draftCompile>false</draftCompile>
+				</configuration>
+				<executions>
+					<execution>
+						<goals>
+							<goal>compile</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
 
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
