@@ -14,7 +14,7 @@
 	<!-- Other module inherits                                      -->
 
 	<!-- Specify the app entry point class.                         -->
-	<entry-point class = 'ru.dobrokvashinevgeny.research.gwt.client.MainEntryPoint'/>
+	<entry-point class = 'ru.dobrokvashinevgeny.research.gwt.client.application.infrastructure.presentation.MainEntryPoint'/>
 
 	<!-- Specify the paths for translatable code                    -->
 	<source path = ''/>

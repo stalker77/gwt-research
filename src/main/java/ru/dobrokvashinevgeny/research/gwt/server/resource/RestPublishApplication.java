@@ -10,6 +10,6 @@ import javax.ws.rs.core.Application;
 /**
  * Класс RestPublishApp
  */
-@ApplicationPath("/")
+@ApplicationPath("/rest")
 public class RestPublishApplication extends Application {
 }
