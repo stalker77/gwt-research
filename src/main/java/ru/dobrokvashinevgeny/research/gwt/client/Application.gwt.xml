@@ -12,14 +12,16 @@
 	<!-- <inherits name = 'com.google.gwt.user.theme.dark.Dark'/>     -->
 
 	<!-- Other module inherits                                      -->
+	<!--<inherits name="com.google.gwt.logging.Logging"/>-->
 
 	<!-- Specify the app entry point class.                         -->
 	<entry-point class = 'ru.dobrokvashinevgeny.research.gwt.client.application.infrastructure.presentation.MainEntryPoint'/>
 
 	<!-- Specify the paths for translatable code                    -->
 	<source path = ''/>
+	<source path = 'application'/>
+	<source path = 'infrastructure'/>
 	<source path = 'presentation'/>
 	<source path = 'service'/>
-	<source path = 'infrastructure'/>
 
 </module>

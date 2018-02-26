@@ -10,26 +10,35 @@ import ru.dobrokvashinevgeny.research.gwt.client.application.infrastructure.pres
  * Класс AppService
  */
 public class AppService implements UserIdentityReceivedListener {
-	private UserIdentityForm userIdentityForm;
+//	private final static Logger LOG = Logger.getLogger("Main");
 
-	public AppService(UserIdentityForm userIdentityForm) {
+	private final UserIdentityForm userIdentityForm;
+	private final PresentationContext presentationContext;
+
+	public AppService(PresentationContext presentationContext, UserIdentityForm userIdentityForm) {
+		this.presentationContext = presentationContext;
 		this.userIdentityForm = userIdentityForm;
 	}
 
 	public void getUserIdentity() {
+//		LOG.log(Level.SEVERE, "AppService.getUserIdentity() begin");
 		userIdentityForm.addUserIdentityReceivedListener(this);
 		userIdentityForm.show();
+//		LOG.log(Level.SEVERE, "AppService.getUserIdentity() end");
 	}
 
 	@Override
 	public void onUserIdentityReceived(UserIdentityViewModel eventData) {
+//		LOG.log(Level.SEVERE, "AppService.onUserIdentityReceived() begin");
 		if (eventData != null) {
-			eventData.getUserName();
+			presentationContext.showMsg("User name is -" + eventData.getUserName() +
+				"; userPsw is - " + eventData.getUserPsw());
 		}
+//		LOG.log(Level.SEVERE, "AppService.onUserIdentityReceived() end");
 	}
 
 	public void getUserAccessForIdentity(UserIdentityViewModel userIdentity) {
-		
+
 	}
 
 	public void buildPresentation() {

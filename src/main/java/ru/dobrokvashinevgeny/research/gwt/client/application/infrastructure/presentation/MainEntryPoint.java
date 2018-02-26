@@ -13,10 +13,14 @@ import ru.dobrokvashinevgeny.research.gwt.client.application.service.AppService;
  * Класс MainEntryPoint
  */
 public class MainEntryPoint implements EntryPoint {
+//	private final static Logger LOG = Logger.getLogger("Main");
+
 	@Override
 	public void onModuleLoad() {
+//		LOG.log(Level.SEVERE, "MainEntryPoint.onModuleLoad() begin");
 		Application application = Applications.fromConfig();
 		AppService appService = application.createAppService();
 		appService.getUserIdentity();
+//		LOG.log(Level.SEVERE, "MainEntryPoint.onModuleLoad() end");
 	}
 }
