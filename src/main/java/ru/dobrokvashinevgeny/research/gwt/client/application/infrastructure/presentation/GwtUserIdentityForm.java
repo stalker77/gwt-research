@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2018 Tander, All Rights Reserved.
+ * Copyright (c) 2018 Evgeny Dobrokvashin, All Rights Reserved.
  */
 
 package ru.dobrokvashinevgeny.research.gwt.client.application.infrastructure.presentation;
