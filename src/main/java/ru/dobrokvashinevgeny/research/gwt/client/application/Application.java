@@ -4,7 +4,7 @@
 
 package ru.dobrokvashinevgeny.research.gwt.client.application;
 
-import ru.dobrokvashinevgeny.research.gwt.client.application.service.AppService;
+import ru.dobrokvashinevgeny.research.gwt.client.application.service.*;
 
 /**
  * Класс Application
@@ -12,14 +12,14 @@ import ru.dobrokvashinevgeny.research.gwt.client.application.service.AppService;
 public class Application {
 //	private final static Logger LOG = Logger.getLogger("Main");
 
-	private DomainRegistry domainRegistry;
+	private ServiceRegistry serviceRegistry;
 
-	public Application(DomainRegistry domainRegistry) {
-		this.domainRegistry = domainRegistry;
+	public Application(ServiceRegistry serviceRegistry) {
+		this.serviceRegistry = serviceRegistry;
 	}
 
 	public AppService createAppService() {
 //		LOG.log(Level.SEVERE, "Application.createAppService() begin");
-		return new AppService(domainRegistry.getPresentationContext(), domainRegistry.getUserIdentityForm());
+		return new AppService(serviceRegistry.getPresentationContext(), serviceRegistry.getUserIdentityForm());
 	}
 }

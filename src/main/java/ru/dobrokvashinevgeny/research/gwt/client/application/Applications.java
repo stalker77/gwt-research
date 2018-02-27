@@ -4,7 +4,8 @@
 
 package ru.dobrokvashinevgeny.research.gwt.client.application;
 
-import ru.dobrokvashinevgeny.research.gwt.client.application.infrastructure.DomainRegistryImpl;
+import ru.dobrokvashinevgeny.research.gwt.client.application.infrastructure.service.gin.GinServiceRegistryImpl;
+import ru.dobrokvashinevgeny.research.gwt.client.application.service.ServiceRegistry;
 
 /**
  * Класс Applications
@@ -14,8 +15,9 @@ public class Applications {
 
 	public static Application fromConfig() {
 //		LOG.log(Level.SEVERE, "Application.fromConfig() begin");
-		final DomainRegistry domainRegistry = new DomainRegistryImpl();
+//		final ServiceRegistry serviceRegistry = new ServiceRegistryImpl();
+		final ServiceRegistry serviceRegistry = new GinServiceRegistryImpl();
 //		LOG.log(Level.SEVERE, "Application.fromConfig() end");
-		return new Application(domainRegistry);
+		return new Application(serviceRegistry);
 	}
 }

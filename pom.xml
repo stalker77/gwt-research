@@ -45,6 +45,13 @@
 			<version>${gxt.version}</version>
 		</dependency>
 
+		<!-- GIN GWT Dependency injection framework -->
+		<dependency>
+			<groupId>com.google.gwt.inject</groupId>
+			<artifactId>gin</artifactId>
+			<version>2.1.2</version>
+		</dependency>
+
 		<!-- RESTEasy -->
 		<dependency>
 			<groupId>org.jboss.resteasy</groupId>
@@ -122,7 +129,8 @@
 					<httpPort>8080</httpPort>
 					<username>tomcat</username>
 					<password>tomcat</password>
-					<path>/</path>
+					<!--<path>/</path>-->
+					<path>/gwt-research-1.0</path>
 				</configuration>
 			</plugin>
 		</plugins>

@@ -2,16 +2,16 @@
  * Copyright (c) 2018 Tander, All Rights Reserved.
  */
 
-package ru.dobrokvashinevgeny.research.gwt.client.application.infrastructure;
+package ru.dobrokvashinevgeny.research.gwt.client.application.infrastructure.service;
 
-import ru.dobrokvashinevgeny.research.gwt.client.application.DomainRegistry;
+import ru.dobrokvashinevgeny.research.gwt.client.application.service.ServiceRegistry;
 import ru.dobrokvashinevgeny.research.gwt.client.application.infrastructure.presentation.*;
 import ru.dobrokvashinevgeny.research.gwt.client.application.service.*;
 
 /**
- * Класс DomainRegistryImpl
+ * Класс ServiceRegistryImpl
  */
-public class DomainRegistryImpl implements DomainRegistry {
+public class ServiceRegistryImpl implements ServiceRegistry {
 	@Override
 	public UserIdentityForm getUserIdentityForm() {
 		return new GwtUserIdentityForm();

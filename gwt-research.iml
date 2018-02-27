@@ -17,6 +17,11 @@
     <orderEntry type="library" name="Maven: org.json:json:20090211" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Maven: com.google.gwt:gwt-servlet:2.6.1" level="project" />
     <orderEntry type="library" name="Maven: com.sencha.gxt:gxt:3.1.1" level="project" />
+    <orderEntry type="library" name="Maven: com.google.gwt.inject:gin:2.1.2" level="project" />
+    <orderEntry type="library" name="Maven: com.google.inject:guice:3.0" level="project" />
+    <orderEntry type="library" name="Maven: javax.inject:javax.inject:1" level="project" />
+    <orderEntry type="library" name="Maven: aopalliance:aopalliance:1.0" level="project" />
+    <orderEntry type="library" name="Maven: com.google.inject.extensions:guice-assistedinject:3.0" level="project" />
     <orderEntry type="library" name="Maven: org.jboss.resteasy:resteasy-jaxrs:3.0.19.Final" level="project" />
     <orderEntry type="library" name="Maven: org.jboss.spec.javax.ws.rs:jboss-jaxrs-api_2.0_spec:1.0.0.Final" level="project" />
     <orderEntry type="library" name="Maven: org.jboss.spec.javax.annotation:jboss-annotations-api_1.2_spec:1.0.0.Final" level="project" />

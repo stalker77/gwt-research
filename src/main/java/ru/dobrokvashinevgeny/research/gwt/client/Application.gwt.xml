@@ -13,6 +13,7 @@
 
 	<!-- Other module inherits                                      -->
 	<!--<inherits name="com.google.gwt.logging.Logging"/>-->
+	<inherits name="com.google.gwt.inject.Inject" />
 
 	<!-- Specify the app entry point class.                         -->
 	<entry-point class = 'ru.dobrokvashinevgeny.research.gwt.client.application.infrastructure.presentation.MainEntryPoint'/>
