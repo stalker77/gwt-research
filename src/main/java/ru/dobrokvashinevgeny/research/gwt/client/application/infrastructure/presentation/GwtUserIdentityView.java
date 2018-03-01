@@ -7,39 +7,39 @@ package ru.dobrokvashinevgeny.research.gwt.client.application.infrastructure.pre
 import com.google.gwt.dom.client.Style;
 import com.google.gwt.event.dom.client.*;
 import com.google.gwt.user.client.ui.*;
-import ru.dobrokvashinevgeny.research.gwt.client.application.service.*;
-
-import java.util.*;
+import ru.dobrokvashinevgeny.research.gwt.client.application.interfaceadapters.useridentity.UserIdentityViewModelImpl;
+import ru.dobrokvashinevgeny.research.gwt.client.application.services.useridentity.*;
 
 /**
- * Класс GwtUserIdentityForm
+ * Класс GwtUserIdentityView
  */
-public class GwtUserIdentityForm implements UserIdentityForm {
+public class GwtUserIdentityView implements UserIdentityView {
 //	private final static Logger LOG = Logger.getLogger("Main");
-
-	private List<UserIdentityReceivedListener> onUserIdentityReceivedListeners = new ArrayList<>();
 	private final FormPanel form;
 	private final VerticalPanel formBody;
 	private final TextBox userName;
 	private final PasswordTextBox userPsw;
-	private final DecoratorPanel panel;
+	private final DecoratorPanel formBorder;
+	private final UserIdentityViewController viewController;
 
-	public GwtUserIdentityForm() {
+	public GwtUserIdentityView(UserIdentityViewController viewController) {
+		this.viewController = viewController;
 		form = new FormPanel();
 		formBody = new VerticalPanel();
 		userName = new TextBox();
 		userPsw = new PasswordTextBox();
-		panel = new DecoratorPanel();
+		formBorder = new DecoratorPanel();
 	}
 
 	@Override
-	public void addUserIdentityReceivedListener(UserIdentityReceivedListener listener) {
-		onUserIdentityReceivedListeners.add(listener);
+	public void create() {
+//		LOG.log(Level.SEVERE, "GwtUserIdentityView.create() begin");
+		init();
+
+		addViewToScreen();
 	}
 
-	@Override
-	public void show() {
-//		LOG.log(Level.SEVERE, "GwtUserIdentityForm.show() begin");
+	private void init() {
 		setNewFormBody();
 
 		addUserName();
@@ -47,12 +47,6 @@ public class GwtUserIdentityForm implements UserIdentityForm {
 		addUserPsw();
 
 		addOkButton();
-
-		addFormSubmitHandler();
-
-		addFormToScreen();
-
-//		Window.alert("Hello, World!");
 	}
 
 	private void setNewFormBody() {
@@ -76,23 +70,22 @@ public class GwtUserIdentityForm implements UserIdentityForm {
 		formBody.add(new Button("Ok", new ClickHandler() {
 			@Override
 			public void onClick(ClickEvent clickEvent) {
-				panel.getElement().getStyle().setDisplay(Style.Display.NONE);
+				formBorder.getElement().getStyle().setDisplay(Style.Display.NONE);
 
-				final UserIdentityViewModel eventData = new UserIdentityViewModel(getUserNameValue(), getUserPswValue());
-				for (UserIdentityReceivedListener listener : onUserIdentityReceivedListeners) {
-					listener.onUserIdentityReceived(eventData);
-				}
+				final UserIdentityViewModel userIdentityViewModel =
+				new UserIdentityViewModelImpl(getUserNameValue(), getUserPswValue());
+				viewController.onUserIdentityReceived(userIdentityViewModel);
 			}
 		}));
 	}
 
-	private void addFormSubmitHandler() {
+	/*private void addFormSubmitHandler() {
 		form.addSubmitCompleteHandler(new FormPanel.SubmitCompleteHandler() {
 			@Override
 			public void onSubmitComplete(FormPanel.SubmitCompleteEvent event) {
 			}
 		});
-	}
+	}*/
 
 	private String getUserNameValue() {
 		return userName.getElement().getPropertyString("value");
@@ -102,8 +95,8 @@ public class GwtUserIdentityForm implements UserIdentityForm {
 		return userPsw.getElement().getPropertyString("value");
 	}
 
-	private void addFormToScreen() {
-		panel.add(form);
-		RootPanel.get().add(panel);
+	private void addViewToScreen() {
+		formBorder.add(form);
+		RootPanel.get().add(formBorder);
 	}
 }

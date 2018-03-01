@@ -2,16 +2,16 @@
  * Copyright (c) 2018 Evgeny Dobrokvashin, All Rights Reserved.
  */
 
-package ru.dobrokvashinevgeny.research.gwt.client.application.service;
+package ru.dobrokvashinevgeny.research.gwt.client.application.services.useridentity;
 
 /**
- * Класс UserIdentityViewModel
+ * Класс UserIdentityModel
  */
-public class UserIdentityViewModel {
+public class UserIdentityModel {
 	private final String userName;
 	private final String userPsw;
 
-	public UserIdentityViewModel(String userName, String userPsw) {
+	public UserIdentityModel(String userName, String userPsw) {
 		this.userName = userName;
 		this.userPsw = userPsw;
 	}

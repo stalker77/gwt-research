@@ -5,8 +5,8 @@
 package ru.dobrokvashinevgeny.research.gwt.client.application.infrastructure.presentation;
 
 import com.google.gwt.core.client.EntryPoint;
-import ru.dobrokvashinevgeny.research.gwt.client.application.*;
-import ru.dobrokvashinevgeny.research.gwt.client.application.service.AppService;
+import ru.dobrokvashinevgeny.research.gwt.client.application.infrastructure.*;
+import ru.dobrokvashinevgeny.research.gwt.client.application.services.AppService;
 
 
 /**
@@ -20,7 +20,7 @@ public class MainEntryPoint implements EntryPoint {
 //		LOG.log(Level.SEVERE, "MainEntryPoint.onModuleLoad() begin");
 		Application application = Applications.fromConfig();
 		AppService appService = application.createAppService();
-		appService.getUserIdentity();
+		appService.receiveUserIdentity();
 //		LOG.log(Level.SEVERE, "MainEntryPoint.onModuleLoad() end");
 	}
 }
