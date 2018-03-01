@@ -13,8 +13,8 @@ import ru.dobrokvashinevgeny.research.gwt.client.application.services.useridenti
  */
 public class GwtUserIdentityService implements UserIdentityService {
 	@Override
-	public UserIdentityView getUserIdentityView() {
-		return new GwtUserIdentityView(getUserIdentityViewController());
+	public UserIdentityView getUserIdentityView(UserIdentityViewController viewController) {
+		return new GwtUserIdentityView(viewController);
 	}
 
 	@Override

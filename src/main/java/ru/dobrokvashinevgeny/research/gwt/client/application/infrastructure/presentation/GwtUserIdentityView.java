@@ -10,11 +10,13 @@ import com.google.gwt.user.client.ui.*;
 import ru.dobrokvashinevgeny.research.gwt.client.application.interfaceadapters.useridentity.UserIdentityViewModelImpl;
 import ru.dobrokvashinevgeny.research.gwt.client.application.services.useridentity.*;
 
+import java.util.logging.*;
+
 /**
  * Класс GwtUserIdentityView
  */
 public class GwtUserIdentityView implements UserIdentityView {
-//	private final static Logger LOG = Logger.getLogger("Main");
+	private final static Logger LOG = Logger.getLogger("Main");
 	private final FormPanel form;
 	private final VerticalPanel formBody;
 	private final TextBox userName;
@@ -33,10 +35,11 @@ public class GwtUserIdentityView implements UserIdentityView {
 
 	@Override
 	public void create() {
-//		LOG.log(Level.SEVERE, "GwtUserIdentityView.create() begin");
+		LOG.log(Level.SEVERE, "GwtUserIdentityView.create() begin");
 		init();
 
 		addViewToScreen();
+		LOG.log(Level.SEVERE, "GwtUserIdentityView.create() end");
 	}
 
 	private void init() {
@@ -73,7 +76,7 @@ public class GwtUserIdentityView implements UserIdentityView {
 				formBorder.getElement().getStyle().setDisplay(Style.Display.NONE);
 
 				final UserIdentityViewModel userIdentityViewModel =
-				new UserIdentityViewModelImpl(getUserNameValue(), getUserPswValue());
+					new UserIdentityViewModelImpl(getUserNameValue(), getUserPswValue());
 				viewController.onUserIdentityReceived(userIdentityViewModel);
 			}
 		}));

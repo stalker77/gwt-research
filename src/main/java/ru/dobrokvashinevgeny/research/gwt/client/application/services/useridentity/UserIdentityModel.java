@@ -33,4 +33,12 @@ public class UserIdentityModel {
 	public String getUserPsw() {
 		return userPsw;
 	}
+
+	@Override
+	public String toString() {
+		return "UserIdentityModel{" +
+			"userName='" + userName + '\'' +
+			", userPsw='" + userPsw + '\'' +
+			'}';
+	}
 }

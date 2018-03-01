@@ -6,7 +6,7 @@ import ru.dobrokvashinevgeny.research.gwt.client.application.services.useridenti
  * Класс UserIdentityService
  */
 public interface UserIdentityService {
-	UserIdentityView getUserIdentityView();
+	UserIdentityView getUserIdentityView(UserIdentityViewController viewController);
 
 	UserIdentityViewController getUserIdentityViewController();
 }

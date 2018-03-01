@@ -37,4 +37,12 @@ public class UserIdentityViewModelImpl implements UserIdentityViewModel {
 	public String getUserPsw() {
 		return userPsw;
 	}
+
+	@Override
+	public String toString() {
+		return "UserIdentityViewModelImpl{" +
+			"userName='" + userName + '\'' +
+			", userPsw='" + userPsw + '\'' +
+			'}';
+	}
 }
