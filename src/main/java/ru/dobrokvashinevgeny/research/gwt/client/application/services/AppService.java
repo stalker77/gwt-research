@@ -42,9 +42,32 @@ public class AppService implements UserIdentityReceivedListener {
 		if (userIdentityModel != null) {
 			displayService.showMsg("User name is -" + userIdentityModel.getUserName() +
 				"; userPsw is - " + userIdentityModel.getUserPsw());
+			final UserAuthenticationInfo userAuthenticationInfo =
+				userAuthenticationService()
+					.userAuthenticationFrom(userIdentityModel);
+
+			/*if (userAuthenticationInfo.isAuthenticated()) {
+				authorizeAuthenticatedUser(userAuthenticationInfo);
+			} else {
+				throw new Exception("");
+			}*/
 		}
 		LOG.log(Level.SEVERE, "AppService.processUserIdentity() end");
 	}
+
+	private UserAuthenticationService userAuthenticationService() {
+		return null;
+	}
+
+	/*private void authorizeAuthenticatedUser(UserAuthenticationInfo userAuthenticationInfo) {
+		final UserAuthorizationInfo userAuthorizationInfo =
+			userAuthorizationService()
+			.userAuthorizationFrom(userAuthenticationInfo);
+	}
+
+	private UserAuthorizationService userAuthorizationService() {
+		return null;
+	}*/
 
 	public void getUserAccessForIdentity(UserIdentityViewModel userIdentity) {
 	}
