@@ -10,16 +10,20 @@ import ru.dobrokvashinevgeny.research.gwt.client.application.services.useridenti
  * Класс UserAuthenticationServiceImpl
  */
 public class UserAuthenticationServiceImpl implements UserAuthenticationService {
-	private UserAuthenticationAdapter userAuthenticationAdapter;
+	private final UserAuthenticationAdapter userAuthenticationAdapter;
+
+	public UserAuthenticationServiceImpl() {
+		this.userAuthenticationAdapter = new UserAuthenticationAdapter();
+	}
 
 	@Override
-	public UserAuthenticationInfo userAuthenticationFrom(UserIdentityModel userIdentityModel) {
-		UserAuthenticationInfo userAuthenticationInfo =
-			this.userAuthenticationAdapter
+	public void userAuthenticationFrom(UserIdentityModel userIdentityModel,
+									   UserAuthenticationReceivedListener receivedListener)
+		throws UserAuthenticationServiceException {
+		this.userAuthenticationAdapter
 			.toUserAuthentication(
 				userIdentityModel.getUserName(),
-				userIdentityModel.getUserPsw());
-
-		return userAuthenticationInfo;
+				userIdentityModel.getUserPsw(),
+				receivedListener);
 	}
 }

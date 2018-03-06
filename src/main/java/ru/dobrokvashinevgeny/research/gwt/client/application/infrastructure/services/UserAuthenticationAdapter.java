@@ -4,25 +4,35 @@
 
 package ru.dobrokvashinevgeny.research.gwt.client.application.infrastructure.services;
 
+import com.google.gwt.core.client.GWT;
 import com.google.gwt.http.client.*;
 import com.google.gwt.json.client.*;
-import ru.dobrokvashinevgeny.research.gwt.client.application.services.useridentity.UserAuthenticationInfo;
+import ru.dobrokvashinevgeny.research.gwt.client.application.services.useridentity.*;
+
+import java.util.logging.*;
 
 /**
  * Класс UserAuthenticationAdapter
  */
 public class UserAuthenticationAdapter {
-	public UserAuthenticationInfo toUserAuthentication(String userName, String userPsw) {
-		UserAuthenticationInfo result = null;
-		RequestBuilder request = new RequestBuilder(RequestBuilder.POST, "/rest/authentication");
+	private static final Logger LOG = Logger.getLogger(UserAuthenticationAdapter.class.getName());
+
+	public void toUserAuthentication(String userName, String userPsw,
+													   final UserAuthenticationReceivedListener receivedListener)
+		throws UserAuthenticationServiceException {
+		LOG.log(Level.SEVERE, "toUserAuthentication begin");
+		RequestBuilder request = new RequestBuilder(RequestBuilder.POST,
+												GWT.getHostPageBaseURL() + "rest/authentication");
 		try {
-			request.setHeader("", "application/json");
+			request.setHeader("Content-type", "application/json");
 			request.sendRequest(toJsonUserIdentity(userName, userPsw).toString(), new RequestCallback() {
 				@Override
 				public void onResponseReceived(Request request, Response response) {
+					LOG.log(Level.SEVERE, "onResponseReceived begin");
 					if (response.getStatusCode() == Response.SC_OK) {
-						toUserAuthenticationInfo(response.getText());
+						receivedListener.onUserAuthenticationReceived(toUserAuthenticationInfo(response.getText()));
 					}
+					LOG.log(Level.SEVERE, "onResponseReceived end");
 				}
 
 				@Override
@@ -31,10 +41,10 @@ public class UserAuthenticationAdapter {
 				}
 			});
 		} catch (RequestException e) {
-
+			throw new UserAuthenticationServiceException("", e);
 		}
 
-		return result;
+		LOG.log(Level.SEVERE, "toUserAuthentication end");
 	}
 
 	private JSONObject toJsonUserIdentity(String userName, String userPsw) {

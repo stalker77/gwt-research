@@ -4,5 +4,7 @@ package ru.dobrokvashinevgeny.research.gwt.client.application.services.userident
  * Класс UserAuthenticationService
  */
 public interface UserAuthenticationService {
-	UserAuthenticationInfo userAuthenticationFrom(UserIdentityModel userIdentityModel);
+	void userAuthenticationFrom(UserIdentityModel userIdentityModel,
+								UserAuthenticationReceivedListener receivedListener)
+		throws UserAuthenticationServiceException;
 }

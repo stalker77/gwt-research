@@ -17,4 +17,11 @@ public class UserAuthenticationInfo {
 	public boolean isAuthenticated() {
 		return authenticated;
 	}
+
+	@Override
+	public String toString() {
+		return "UserAuthenticationInfo{" +
+			"authenticated=" + authenticated +
+			'}';
+	}
 }

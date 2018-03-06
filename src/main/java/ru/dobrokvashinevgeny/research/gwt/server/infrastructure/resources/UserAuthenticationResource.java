@@ -16,7 +16,7 @@ import javax.ws.rs.core.MediaType;
 public class UserAuthenticationResource {
 	@POST
 	@Consumes(MediaType.APPLICATION_JSON)
-	@Produces(MediaType.APPLICATION_JSON + ";" + MediaType.CHARSET_PARAMETER + "=utf-8")
+	@Produces(MediaType.APPLICATION_JSON /*+ ";" + MediaType.CHARSET_PARAMETER + "=utf-8;"*/)
 	public UserAuthenticationInfo authenticateUser(String userName, String userPsw) {
 		UserAuthenticationService authenticationService = new UserAuthenticationService();
 		return authenticationService.authenticate(new UserInfo(userName, userPsw));

@@ -12,14 +12,16 @@ import ru.dobrokvashinevgeny.research.gwt.client.application.services.*;
 public class Application {
 //	private final static Logger LOG = Logger.getLogger("Main");
 
-	private PresentationContext presentationContext;
+	private final PresentationContext presentationContext;
+	private final ServicesRegistry servicesRegistry;
 
-	public Application(PresentationContext presentationContext) {
+	public Application(PresentationContext presentationContext, ServicesRegistry servicesRegistry) {
 		this.presentationContext = presentationContext;
+		this.servicesRegistry = servicesRegistry;
 	}
 
 	public AppService createAppService() {
 //		LOG.log(Level.SEVERE, "Application.createAppService() begin");
-		return new AppService(presentationContext);
+		return new AppService(presentationContext, servicesRegistry);
 	}
 }

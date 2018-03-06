@@ -4,6 +4,7 @@
 
 package ru.dobrokvashinevgeny.research.gwt.client.application.infrastructure;
 
+import ru.dobrokvashinevgeny.research.gwt.client.application.infrastructure.services.ServicesRegistryImpl;
 import ru.dobrokvashinevgeny.research.gwt.client.application.infrastructure.services.gin.GinPresentationContextImpl;
 import ru.dobrokvashinevgeny.research.gwt.client.application.services.*;
 
@@ -17,7 +18,8 @@ public class Applications {
 //		LOG.log(Level.SEVERE, "Application.fromConfig() begin");
 //		final UserIdentityService presentationContext = new PresentationContextImpl();
 		final PresentationContext presentationContext = new GinPresentationContextImpl();
+		final ServicesRegistry servicesRegistry = new ServicesRegistryImpl();
 //		LOG.log(Level.SEVERE, "Application.fromConfig() end");
-		return new Application(presentationContext);
+		return new Application(presentationContext, servicesRegistry);
 	}
 }
