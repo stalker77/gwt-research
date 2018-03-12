@@ -18,13 +18,13 @@
 	<inherits name="com.google.gwt.inject.Inject" />
 
 	<!-- Specify the app entry point class.                         -->
-	<entry-point class = 'ru.dobrokvashinevgeny.research.gwt.client.application.infrastructure.presentation.MainEntryPoint'/>
+	<entry-point class = 'ru.dobrokvashinevgeny.research.gwt.client.infrastructure.presentation.MainEntryPoint'/>
 
 	<!-- Specify the paths for translatable code                    -->
 	<source path = ''/>
 	<source path = 'application'/>
 	<source path = 'infrastructure'/>
 	<source path = 'presentation'/>
-	<source path = 'service'/>
+	<source path = 'services'/>
 
 </module>
