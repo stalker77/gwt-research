@@ -1,4 +1,4 @@
-package ru.dobrokvashinevgeny.research.gwt.server.infrastructure.services;
+package ru.dobrokvashinevgeny.research.gwt.server.infrastructure.services.eventhandler;
 
 /**
  * Класс EventHandlerManager

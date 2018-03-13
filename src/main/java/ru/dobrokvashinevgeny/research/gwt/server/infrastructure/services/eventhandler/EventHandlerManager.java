@@ -2,9 +2,9 @@
  * Copyright (c) 2018 Evgeny Dobrokvashin, All Rights Reserved.
  */
 
-package ru.dobrokvashinevgeny.research.gwt.server.infrastructure.services;
+package ru.dobrokvashinevgeny.research.gwt.server.infrastructure.services.eventhandler;
 
-import ru.dobrokvashinevgeny.research.gwt.server.services.EventHandler;
+import ru.dobrokvashinevgeny.research.gwt.server.services.eventhandler.EventHandler;
 
 import java.security.*;
 import java.util.*;

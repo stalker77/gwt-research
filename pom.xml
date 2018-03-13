@@ -26,6 +26,12 @@
 	</properties>
 
 	<dependencies>
+		<dependency>
+			<groupId>ru.dobrokvashinevgeny.research.gwt</groupId>
+			<artifactId>event-handler</artifactId>
+			<version>1.0</version>
+		</dependency>
+
 		<!-- GWT -->
 		<dependency>
 			<groupId>com.google.gwt</groupId>
