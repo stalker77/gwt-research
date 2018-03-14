@@ -1,4 +1,4 @@
-package ru.dobrokvashinevgeny.research.gwt.server.services.eventhandler.streams;
+package ru.dobrokvashinevgeny.research.gwt.server.services.streams;
 
 /**
  * Класс StructuredReadStreamFactory

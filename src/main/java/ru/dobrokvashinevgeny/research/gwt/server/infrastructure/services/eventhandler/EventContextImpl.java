@@ -4,21 +4,19 @@
 
 package ru.dobrokvashinevgeny.research.gwt.server.infrastructure.services.eventhandler;
 
-import ru.dobrokvashinevgeny.research.gwt.server.services.eventhandler.*;
-import ru.dobrokvashinevgeny.research.gwt.server.services.eventhandler.streams.StructuredReadStreamFactory;
+import ru.dobrokvashinevgeny.research.gwt.server.services.eventhandler.EventContext;
 
 /**
  * Класс EventContextImpl
  */
 public class EventContextImpl implements EventContext {
-	private final StructuredReadStreamFactory streamFactory;
-
-	public EventContextImpl(StructuredReadStreamFactory streamFactory) {
-		this.streamFactory = streamFactory;
+	@Override
+	public String getFileStorageBasePath() {
+		return "/upload";
 	}
 
 	@Override
-	public StructuredReadStreamFactory getStructuredReadStreamFactory() {
-		return this.streamFactory;
+	public String getJndiDataSourceName() {
+		return "mainDS";
 	}
 }

@@ -18,6 +18,8 @@ public class SlEventHandlerService implements EventHandlerService {
 			eventHandler.handle(eventContext);
 		} catch (EventHandlerManagerException e) {
 			throw new EventHandlerServiceException("Event handler class not found: " + eventHandlerClassName, e);
+		} catch (EventHandlerException e) {
+			throw new EventHandlerServiceException("Exception in event handler.", e);
 		}
 	}
 }

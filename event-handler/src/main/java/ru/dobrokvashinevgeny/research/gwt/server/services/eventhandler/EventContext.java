@@ -4,13 +4,11 @@
 
 package ru.dobrokvashinevgeny.research.gwt.server.services.eventhandler;
 
-import ru.dobrokvashinevgeny.research.gwt.server.services.eventhandler.streams.StructuredReadStreamFactory;
-
 /**
  * Класс EventContext
  */
 public interface EventContext {
-	StructuredReadStreamFactory getStructuredReadStreamFactory();
+	String getFileStorageBasePath();
 
-
+	String getJndiDataSourceName();
 }

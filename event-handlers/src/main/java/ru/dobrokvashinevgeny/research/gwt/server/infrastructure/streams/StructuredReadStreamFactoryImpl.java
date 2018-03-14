@@ -2,9 +2,9 @@
  * Copyright (c) 2018 Evgeny Dobrokvashin, All Rights Reserved.
  */
 
-package ru.dobrokvashinevgeny.research.gwt.server.infrastructure.services.eventhandler.streams;
+package ru.dobrokvashinevgeny.research.gwt.server.infrastructure.streams;
 
-import ru.dobrokvashinevgeny.research.gwt.server.services.eventhandler.streams.*;
+import ru.dobrokvashinevgeny.research.gwt.server.services.streams.*;
 
 /**
  * Класс StructuredReadStreamFactoryImpl

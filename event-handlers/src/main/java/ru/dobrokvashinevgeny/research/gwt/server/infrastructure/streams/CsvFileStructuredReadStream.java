@@ -2,9 +2,9 @@
  * Copyright (c) 2018 Evgeny Dobrokvashin, All Rights Reserved.
  */
 
-package ru.dobrokvashinevgeny.research.gwt.server.infrastructure.services.eventhandler.streams;
+package ru.dobrokvashinevgeny.research.gwt.server.infrastructure.streams;
 
-import ru.dobrokvashinevgeny.research.gwt.server.services.eventhandler.streams.*;
+import ru.dobrokvashinevgeny.research.gwt.server.services.streams.*;
 
 import java.io.*;
 import java.nio.charset.Charset;
@@ -14,7 +14,7 @@ import java.util.*;
 /**
  * Класс CsvFileStructuredReadStream
  */
-public class CsvFileStructuredReadStream implements StructuredReadStream, AutoCloseable {
+public class CsvFileStructuredReadStream implements StructuredReadStream {
 	private static final String CSV_COLUMN_SEPARATOR = ",";
 
 	private final BufferedReader fileReader;

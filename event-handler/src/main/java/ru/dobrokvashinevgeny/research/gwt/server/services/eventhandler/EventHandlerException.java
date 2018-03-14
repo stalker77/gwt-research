@@ -1,16 +1,16 @@
-package ru.dobrokvashinevgeny.research.gwt.server.services.eventhandler.streams;
+package ru.dobrokvashinevgeny.research.gwt.server.services.eventhandler;
 
 /**
- * Класс StructuredReadStream
+ * Класс EventHandler
  */
-public class StructuredReadStreamException extends Exception {
+public class EventHandlerException extends Exception {
 	/**
-	 * Создает <code>StructuredReadStreamException</code> с указанным
+	 * Создает <code>EventHandlerException</code> с указанным
 	 * детализирующим сообщением.
 	 *
 	 * @param message детализирующее сообщение.
 	 */
-	public StructuredReadStreamException(String message) {
+	public EventHandlerException(String message) {
 		super(message);
 	}
 
@@ -25,7 +25,7 @@ public class StructuredReadStreamException extends Exception {
 	 *                (Значение <tt>null</tt> является разрешенным, и означает
 	 *                что причина несуществует или неизвестна.)
 	 */
-	public StructuredReadStreamException(String message, Throwable cause) {
+	public EventHandlerException(String message, Throwable cause) {
 		super(message, cause);
 	}
 
@@ -37,7 +37,7 @@ public class StructuredReadStreamException extends Exception {
 	 *              (Значение <tt>null</tt> является разрешенным, и означает
 	 *              что причина несуществует или неизвестна.)
 	 */
-	public StructuredReadStreamException(Throwable cause) {
+	public EventHandlerException(Throwable cause) {
 		super(cause);
 	}
 }

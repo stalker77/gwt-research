@@ -2,9 +2,9 @@
  * Copyright (c) 2018 Evgeny Dobrokvashin, All Rights Reserved.
  */
 
-package ru.dobrokvashinevgeny.research.gwt.server.infrastructure.services.eventhandler.streams;
+package ru.dobrokvashinevgeny.research.gwt.server.infrastructure.streams;
 
-import ru.dobrokvashinevgeny.research.gwt.server.services.eventhandler.streams.StructuredReadStream;
+import ru.dobrokvashinevgeny.research.gwt.server.services.streams.StructuredReadStream;
 
 import java.util.List;
 
@@ -23,5 +23,10 @@ public class XlsFileStructuredReadStream implements StructuredReadStream {
 	@Override
 	public List<String> getLineData() {
 		return null;
+	}
+
+	@Override
+	public void close() throws Exception {
+
 	}
 }
