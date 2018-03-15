@@ -13,6 +13,8 @@
 
         <maven.compiler.target>1.7</maven.compiler.target>
         <maven.compiler.source>1.7</maven.compiler.source>
+
+	    <resteasy.version>3.0.19.Final</resteasy.version>
     </properties>
 
 	<dependencies>
@@ -20,6 +22,13 @@
 			<groupId>ru.dobrokvashinevgeny.research.gwt</groupId>
 			<artifactId>event-handler</artifactId>
 			<version>1.0</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.jboss.resteasy</groupId>
+			<artifactId>resteasy-jackson-provider</artifactId>
+			<version>${resteasy.version}</version>
+			<scope>provided</scope>
 		</dependency>
 
 		<dependency>

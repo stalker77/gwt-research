@@ -12,21 +12,23 @@ import java.util.*;
  * Класс FileTransferService
  */
 public class FileTransferService {
-	private static final String FILE_NAME = "file1.csv";
 	private static final int ID_COL = 0;
 	private static final int NAME_COL = 1;
 	private static final int VALUE_COL = 2;
 	private final StructuredReadStreamFactory streamFactory;
 	private final FileTransferEventHandlerDao eventHandlerDao;
+	private final FileTransferEventData eventData;
 
-	public FileTransferService(StructuredReadStreamFactory streamFactory, FileTransferEventHandlerDao eventHandlerDao) {
+	public FileTransferService(StructuredReadStreamFactory streamFactory, FileTransferEventHandlerDao eventHandlerDao,
+							   FileTransferEventData eventData) {
 		this.streamFactory = streamFactory;
 		this.eventHandlerDao = eventHandlerDao;
+		this.eventData = eventData;
 	}
 
 	public void transfer()
 		throws FileTransferServiceException {
-		try (StructuredReadStream sourceStream = streamFactory.createAsCsv("" + FILE_NAME)) {
+		try (StructuredReadStream sourceStream = streamFactory.createAsCsv(eventData.getTransferFileName())) {
 			while (sourceStream.nextLine()) {
 				final List<String> lineData = sourceStream.getLineData();
 

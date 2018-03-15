@@ -2,7 +2,7 @@
  * Copyright (c) 2018 Evgeny Dobrokvashin, All Rights Reserved.
  */
 
-package ru.dobrokvashinevgeny.research.gwt.server.infrastructure.streams;
+package ru.dobrokvashinevgeny.research.gwt.server.infrastructure.services.streams;
 
 import ru.dobrokvashinevgeny.research.gwt.server.services.streams.*;
 

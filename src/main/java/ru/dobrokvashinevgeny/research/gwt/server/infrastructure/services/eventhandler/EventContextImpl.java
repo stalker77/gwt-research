@@ -10,6 +10,12 @@ import ru.dobrokvashinevgeny.research.gwt.server.services.eventhandler.EventCont
  * Класс EventContextImpl
  */
 public class EventContextImpl implements EventContext {
+	private final String eventPayload;
+
+	public EventContextImpl(String eventPayload) {
+		this.eventPayload = eventPayload;
+	}
+
 	@Override
 	public String getFileStorageBasePath() {
 		return "/upload";
@@ -18,5 +24,10 @@ public class EventContextImpl implements EventContext {
 	@Override
 	public String getJndiDataSourceName() {
 		return "mainDS";
+	}
+
+	@Override
+	public String getEventPayload() {
+		return this.eventPayload;
 	}
 }

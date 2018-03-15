@@ -11,4 +11,6 @@ public interface EventContext {
 	String getFileStorageBasePath();
 
 	String getJndiDataSourceName();
+
+	String getEventPayload();
 }

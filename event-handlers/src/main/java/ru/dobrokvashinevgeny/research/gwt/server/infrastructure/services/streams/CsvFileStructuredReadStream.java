@@ -2,7 +2,7 @@
  * Copyright (c) 2018 Evgeny Dobrokvashin, All Rights Reserved.
  */
 
-package ru.dobrokvashinevgeny.research.gwt.server.infrastructure.streams;
+package ru.dobrokvashinevgeny.research.gwt.server.infrastructure.services.streams;
 
 import ru.dobrokvashinevgeny.research.gwt.server.services.streams.*;
 
@@ -23,7 +23,8 @@ public class CsvFileStructuredReadStream implements StructuredReadStream {
 
 	public CsvFileStructuredReadStream(String fileStorageBasePath, String streamName) throws StructuredReadStreamException {
 		try {
-			fileReader = Files.newBufferedReader(Paths.get(streamName), Charset.forName("UTF-8"));
+			fileReader = Files.newBufferedReader(
+				Paths.get(fileStorageBasePath + File.pathSeparator + streamName), Charset.forName("UTF-8"));
 		} catch (IOException e) {
 			throw new StructuredReadStreamException(e);
 		}

@@ -17,19 +17,21 @@ public class FileTransferEventHandlerEntryPoint implements EventHandler {
 
 	@Override
 	public void handle(EventContext eventContext) throws EventHandlerException {
-		final ApplicationFileTransferEventHandler application =
-			new ApplicationFileTransferEventHandler(
-				eventContext.getFileStorageBasePath(),
-				eventContext.getJndiDataSourceName());
-
 		try {
+			final ApplicationFileTransferEventHandler application =
+				new ApplicationFileTransferEventHandler(
+					eventContext.getFileStorageBasePath(),
+					eventContext.getJndiDataSourceName(),
+					eventContext.getEventPayload());
+
+
 			final FileTransferService fileTransferService = application.createFileTransferService();
 			fileTransferService.transfer();
 		} catch (FileTransferServiceException e) {
 			LOG.error("Exception on transfer file.", e);
 			throw new EventHandlerException(e);
 		} catch (ApplicationEventHandlerException e) {
-			LOG.error("Exception on create file transfer service.", e);
+			LOG.error("Exception in application event handler.", e);
 			throw new EventHandlerException(e);
 		}
 	}
