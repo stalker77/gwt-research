@@ -10,13 +10,19 @@ import ru.dobrokvashinevgeny.research.gwt.server.services.streams.*;
  * Класс StructuredReadStreamFactoryImpl
  */
 public class StructuredReadStreamFactoryImpl implements StructuredReadStreamFactory {
+	private final String fileStorageBasePath;
+
+	public StructuredReadStreamFactoryImpl(String fileStorageBasePath) {
+		this.fileStorageBasePath = fileStorageBasePath;
+	}
+
 	@Override
 	public StructuredReadStream createAsCsv(String streamName) throws StructuredReadStreamException {
-		return new CsvFileStructuredReadStream(streamName);
+		return new CsvFileStructuredReadStream(fileStorageBasePath, streamName);
 	}
 
 	@Override
 	public StructuredReadStream createAsXls(String streamName) {
-		return new XlsFileStructuredReadStream(streamName);
+		return new XlsFileStructuredReadStream(fileStorageBasePath, streamName);
 	}
 }

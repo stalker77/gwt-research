@@ -21,7 +21,7 @@ public class CsvFileStructuredReadStream implements StructuredReadStream {
 
 	private List<String> lineData;
 
-	public CsvFileStructuredReadStream(String streamName) throws StructuredReadStreamException {
+	public CsvFileStructuredReadStream(String fileStorageBasePath, String streamName) throws StructuredReadStreamException {
 		try {
 			fileReader = Files.newBufferedReader(Paths.get(streamName), Charset.forName("UTF-8"));
 		} catch (IOException e) {

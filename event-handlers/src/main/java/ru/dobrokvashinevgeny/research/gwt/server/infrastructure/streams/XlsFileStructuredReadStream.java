@@ -12,7 +12,7 @@ import java.util.List;
  * Класс XlsFileStructuredReadStream
  */
 public class XlsFileStructuredReadStream implements StructuredReadStream {
-	public XlsFileStructuredReadStream(String streamName) {
+	public XlsFileStructuredReadStream(String fileStorageBasePath, String streamName) {
 	}
 
 	@Override

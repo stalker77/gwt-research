@@ -6,30 +6,61 @@ package ru.dobrokvashinevgeny.research.gwt.server.services;
 
 import ru.dobrokvashinevgeny.research.gwt.server.services.streams.*;
 
-import java.util.List;
+import java.util.*;
 
 /**
  * Класс FileTransferService
  */
 public class FileTransferService {
+	private static final String FILE_NAME = "file1.csv";
+	private static final int ID_COL = 0;
+	private static final int NAME_COL = 1;
+	private static final int VALUE_COL = 2;
 	private final StructuredReadStreamFactory streamFactory;
+	private final FileTransferEventHandlerDao eventHandlerDao;
 
-	public FileTransferService(StructuredReadStreamFactory streamFactory) {
+	public FileTransferService(StructuredReadStreamFactory streamFactory, FileTransferEventHandlerDao eventHandlerDao) {
 		this.streamFactory = streamFactory;
+		this.eventHandlerDao = eventHandlerDao;
 	}
 
-	public void transfer(String fileName, TransformerConfig transformerConfig, DestDsConfig destDsConfig)
+	public void transfer()
 		throws FileTransferServiceException {
-		try (StructuredReadStream sourceStream = streamFactory.createAsCsv("" + fileName)) {
+		try (StructuredReadStream sourceStream = streamFactory.createAsCsv("" + FILE_NAME)) {
 			while (sourceStream.nextLine()) {
 				final List<String> lineData = sourceStream.getLineData();
-				//todo:
-				//transform line data
 
-				//send transformed line data to destination data source
+				final List<String> transformedLineData = transformLineData(lineData);
+
+				eventHandlerDao.save(transformedLineData);
 			}
 		} catch (Exception e) {
 			throw new FileTransferServiceException(e);
+		}
+	}
+
+	private List<String> transformLineData(List<String> lineData) {
+		List<String> result = new ArrayList<>();
+
+		for(int i = 0; i < lineData.size(); i++) {
+			String dataElement = lineData.get(i);
+
+			transformDataElement(result, i, dataElement);
+		}
+		return result;
+	}
+
+	private void transformDataElement(List<String> result, int i, String dataElement) {
+		switch (i) {
+			case ID_COL:
+				result.add(dataElement);
+				break;
+			case NAME_COL:
+				result.add(dataElement + " - 12");
+				break;
+			case VALUE_COL:
+				result.add(dataElement);
+				break;
 		}
 	}
 }
