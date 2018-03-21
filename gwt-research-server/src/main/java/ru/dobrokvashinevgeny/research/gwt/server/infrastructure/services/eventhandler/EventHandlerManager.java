@@ -8,7 +8,7 @@ import org.slf4j.*;
 import ru.dobrokvashinevgeny.research.gwt.server.services.eventhandler.EventHandler;
 
 import java.security.*;
-import java.util.*;
+import java.util.ServiceLoader;
 import java.util.concurrent.CopyOnWriteArrayList;
 
 /**

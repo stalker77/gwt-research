@@ -4,7 +4,11 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<groupId>ru.dobrokvashinevgeny.research.gwt</groupId>
+	<parent>
+		<artifactId>gwt-research</artifactId>
+		<groupId>ru.dobrokvashinevgeny.research.gwt</groupId>
+		<version>1.0</version>
+	</parent>
 	<artifactId>gwt-research-client</artifactId>
 	<version>1.0</version>
 
@@ -69,8 +73,8 @@
 						<module>ru.dobrokvashinevgeny.research.gwt.client.Application</module>
 					</modules>
 
-					<warSourceDirectory>${basedir}/../target/gwt-research-${project.version}</warSourceDirectory>
-					<webappDirectory>${basedir}/../target/gwt-research-${project.version}</webappDirectory>
+					<warSourceDirectory>${basedir}/../gwt-research-server/target/gwt-research-server-${project.version}</warSourceDirectory>
+					<webappDirectory>${basedir}/../gwt-research-server/target/gwt-research-server-${project.version}</webappDirectory>
 
 					<!--<logLevel>DEBUG</logLevel>-->
 					<sourceLevel>1.7</sourceLevel>
