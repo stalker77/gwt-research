@@ -4,7 +4,7 @@
 
 package ru.dobrokvashinevgeny.research.gwt.client.infrastructure.services.gin;
 
-import com.google.gwt.inject.client.*;
+import com.google.gwt.inject.client.AbstractGinModule;
 import ru.dobrokvashinevgeny.research.gwt.client.infrastructure.presentation.*;
 import ru.dobrokvashinevgeny.research.gwt.client.services.*;
 
