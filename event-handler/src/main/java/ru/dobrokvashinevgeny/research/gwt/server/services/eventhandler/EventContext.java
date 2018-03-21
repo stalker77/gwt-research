@@ -12,5 +12,5 @@ public interface EventContext {
 
 	String getJndiDataSourceName();
 
-	String getEventPayload();
+	EventPayload getEventPayload();
 }

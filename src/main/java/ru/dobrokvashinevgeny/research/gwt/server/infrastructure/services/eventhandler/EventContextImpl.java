@@ -4,15 +4,15 @@
 
 package ru.dobrokvashinevgeny.research.gwt.server.infrastructure.services.eventhandler;
 
-import ru.dobrokvashinevgeny.research.gwt.server.services.eventhandler.EventContext;
+import ru.dobrokvashinevgeny.research.gwt.server.services.eventhandler.*;
 
 /**
  * Класс EventContextImpl
  */
 public class EventContextImpl implements EventContext {
-	private final String eventPayload;
+	private final EventPayload eventPayload;
 
-	public EventContextImpl(String eventPayload) {
+	public EventContextImpl(EventPayload eventPayload) {
 		this.eventPayload = eventPayload;
 	}
 
@@ -27,7 +27,7 @@ public class EventContextImpl implements EventContext {
 	}
 
 	@Override
-	public String getEventPayload() {
+	public EventPayload getEventPayload() {
 		return this.eventPayload;
 	}
 }

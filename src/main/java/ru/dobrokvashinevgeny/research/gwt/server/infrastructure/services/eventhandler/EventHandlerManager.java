@@ -4,6 +4,7 @@
 
 package ru.dobrokvashinevgeny.research.gwt.server.infrastructure.services.eventhandler;
 
+import org.slf4j.*;
 import ru.dobrokvashinevgeny.research.gwt.server.services.eventhandler.EventHandler;
 
 import java.security.*;
@@ -14,7 +15,9 @@ import java.util.concurrent.CopyOnWriteArrayList;
  * Класс EventHandlerManager
  */
 public class EventHandlerManager {
-	private final static CopyOnWriteArrayList<EventHandler> registeredEventHandlers = new CopyOnWriteArrayList<>();
+	private static final Logger LOG = LoggerFactory.getLogger(EventHandlerManager.class);
+
+	private static final CopyOnWriteArrayList<EventHandler> registeredEventHandlers = new CopyOnWriteArrayList<>();
 
 	static {
 		loadInitialEventHandlers();
@@ -40,6 +43,7 @@ public class EventHandlerManager {
 				try {
 					for (EventHandler eventHandler : loadedEventHandlers) {
 						registeredEventHandlers.addIfAbsent(eventHandler);
+						LOG.info("Registered event handler: " + eventHandler.getClass().getName());
 					}
 				} catch(Throwable t) { /*NOP*/ }
 
