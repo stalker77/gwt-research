@@ -12,28 +12,16 @@
 	<artifactId>gwt-research-client</artifactId>
 	<version>1.0</version>
 
-	<properties>
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-
-		<maven.compiler.target>1.7</maven.compiler.target>
-		<maven.compiler.source>1.7</maven.compiler.source>
-
-		<gwt.version>2.6.1</gwt.version>
-		<gxt.version>3.1.1</gxt.version>
-	</properties>
-
 	<dependencies>
 		<!-- GWT -->
 		<dependency>
 			<groupId>com.google.gwt</groupId>
 			<artifactId>gwt-user</artifactId>
-			<version>${gwt.version}</version>
 			<scope>provided</scope>
 		</dependency>
 		<dependency>
 			<groupId>com.google.gwt</groupId>
 			<artifactId>gwt-servlet</artifactId>
-			<version>${gwt.version}</version>
 			<scope>provided</scope>
 		</dependency>
 
@@ -41,14 +29,17 @@
 		<dependency>
 			<groupId>com.sencha.gxt</groupId>
 			<artifactId>gxt</artifactId>
-			<version>${gxt.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.sencha.gxt</groupId>
+			<artifactId>gxt-chart</artifactId>
 		</dependency>
 
 		<!-- GIN GWT Dependency injection framework -->
 		<dependency>
 			<groupId>com.google.gwt.inject</groupId>
 			<artifactId>gin</artifactId>
-			<version>2.1.2</version>
 		</dependency>
 	</dependencies>
 
@@ -77,7 +68,7 @@
 					<webappDirectory>${basedir}/../gwt-research-server/target/gwt-research-server-${project.version}</webappDirectory>
 
 					<!--<logLevel>DEBUG</logLevel>-->
-					<sourceLevel>1.7</sourceLevel>
+					<sourceLevel>1.8</sourceLevel>
 					<style>PRETTY</style>
 					<inplace>false</inplace>
 					<localWorkers>1</localWorkers>
