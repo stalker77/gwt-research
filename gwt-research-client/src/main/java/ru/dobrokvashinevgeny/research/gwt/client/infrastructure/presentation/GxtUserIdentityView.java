@@ -4,11 +4,11 @@
 
 package ru.dobrokvashinevgeny.research.gwt.client.infrastructure.presentation;
 
+import com.google.gwt.dom.client.Style;
 import com.google.gwt.user.client.ui.RootPanel;
 import com.sencha.gxt.widget.core.client.FramedPanel;
 import com.sencha.gxt.widget.core.client.button.TextButton;
 import com.sencha.gxt.widget.core.client.container.VBoxLayoutContainer;
-import com.sencha.gxt.widget.core.client.event.SelectEvent;
 import com.sencha.gxt.widget.core.client.form.*;
 import ru.dobrokvashinevgeny.research.gwt.client.interfaceadapters.useridentity.UserIdentityViewModelImpl;
 import ru.dobrokvashinevgeny.research.gwt.client.services.useridentity.*;
@@ -47,13 +47,12 @@ public class GxtUserIdentityView implements UserIdentityView {
 		layoutContainer.add(new FieldLabel(userPsw, "Пароль"));
 		framedPanel.setHeading("Аутентификация");
 		framedPanel.add(layoutContainer);
-		framedPanel.addButton(new TextButton("Ок", new SelectEvent.SelectHandler() {
-			@Override
-			public void onSelect(SelectEvent event) {
-				final UserIdentityViewModel userIdentityViewModel =
-					new UserIdentityViewModelImpl(getUserNameValue(), getUserPswValue());
-				viewController.onUserIdentityReceived(userIdentityViewModel);
-			}
+		framedPanel.addButton(new TextButton("Ок", event -> {
+			framedPanel.getElement().getStyle().setDisplay(Style.Display.NONE);
+
+			final UserIdentityViewModel userIdentityViewModel =
+				new UserIdentityViewModelImpl(getUserNameValue(), getUserPswValue());
+			viewController.onUserIdentityReceived(userIdentityViewModel);
 		}));
 	}
 
